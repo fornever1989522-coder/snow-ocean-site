@@ -16,12 +16,12 @@
 
     /* HEADER */
     header {
-      background: white;
+      background: #ffffff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 16px 0;
+      padding: 14px 0;
     }
     nav {
       max-width: 1100px;
@@ -56,23 +56,23 @@
     }
     .hero h1 {
       margin: 0;
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       font-weight: 700;
     }
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       margin-top: 12px;
-      max-width: 600px;
+      max-width: 620px;
       margin-left: auto;
       margin-right: auto;
       opacity: 0.9;
     }
 
-    /* SECTION CONTAINER */
+    /* SECTIONS */
     .section {
       max-width: 1000px;
       margin: 40px auto;
-      padding: 0 20px;
+      padding: 0 20px 10px;
     }
     h2 {
       color: #0b3d91;
@@ -85,12 +85,12 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
-      margin-top: 20px;
+      margin-top: 16px;
     }
     .card {
-      background: white;
+      background: #ffffff;
       border-radius: 8px;
-      padding: 20px;
+      padding: 18px 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
       text-align: left;
     }
@@ -104,9 +104,10 @@
     .contact-box {
       background: #eef3fd;
       border-left: 4px solid #0b3d91;
-      padding: 20px;
+      padding: 18px 20px;
       border-radius: 6px;
-      margin-top: 20px;
+      margin-top: 16px;
+      font-size: 0.95rem;
     }
 
     footer {
@@ -117,6 +118,13 @@
       color: #777;
       margin-top: 40px;
     }
+
+    a {
+      color: #0b3d91;
+    }
+    a:hover {
+      color: #0641c7;
+    }
   </style>
 </head>
 <body>
@@ -125,8 +133,8 @@
   <nav>
     <div class="logo">Snow Ocean Consulting</div>
     <div class="menu">
-      <a href="#services">Services</a>
       <a href="#about">About</a>
+      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -134,23 +142,76 @@
 
 <section class="hero">
   <h1>Adventure Travel Planning Made Simple</h1>
-  <p>Snowboarding, scuba diving, hiking, and outdoor travel consulting for
-     travelers who want expert guidance without the hassle.</p>
+  <p>
+    Snow Ocean Travel Consulting helps you plan snowboarding, diving, and hiking trips
+    with clear, practical advice instead of overwhelming research.
+  </p>
 </section>
 
+<div class="section" id="about">
+  <h2>About Snow Ocean</h2>
+  <p>
+    Snow Ocean Travel Consulting is a small, independent travel advisory based in Dallas, Texas.
+    We focus on adventure travel: snowboarding and ski trips, scuba diving holidays, and
+    hiking or trekking routes around the world. Our role is to help you decide where to go,
+    when to go, and how to structure your trip so you get the most out of your time on the
+    mountain, in the water, or on the trail.
+  </p>
+  <p>
+    We don’t sell flights or hotel packages directly. Instead, we provide simple, experience-based
+    guidance and trip outlines that you can book on your own through the platforms you prefer.
+  </p>
+</div>
+
 <div class="section" id="services">
-  <h2>Our Services</h2>
+  <h2>Services</h2>
   <div class="services">
     <div class="card">
       <h3>Snowboarding & Ski Trips</h3>
-      <p>Advice on top resorts, seasons, routes, and budget options across Japan,
-         Colorado, Canada, and Europe.</p>
+      <p>
+        Suggestions on destinations, seasons, and resort areas for Japan powder trips,
+        Colorado and Utah, Canada, and European Alps. We help you compare options and
+        sketch out a practical day-by-day plan.
+      </p>
     </div>
     <div class="card">
       <h3>Scuba Diving Trips</h3>
-      <p>Guidance for Philippines, Indonesia, Maldives, Thailand, and more—
-         dive shops, island choices, and seasonal recommendations.</p>
+      <p>
+        High-level advice on dive regions such as the Philippines, Indonesia, Maldives,
+        and Thailand: where to base, how many days to stay, and how to combine islands
+        or dive spots in one trip.
+      </p>
     </div>
     <div class="card">
-      <h3>Hiking & Trekking</h3>
-      <p>Itinerary planning for Patagonia, Kiliman
+      <h3>Hiking & Trekking Plans</h3>
+      <p>
+        Itinerary ideas for multi-day hikes and treks, including Patagonia, Kilimanjaro,
+        Nepal (EBC and surrounding routes), and national park trails. We focus on route
+        choice, pacing, and basic logistics.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <h2>Contact</h2>
+  <div class="contact-box">
+    <p>
+      For inquiries or to discuss a possible trip, contact us by email:
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <a href="mailto:info@snow-ocean.com">info@snow-ocean.com</a>
+    </p>
+    <p>
+      <strong>Location:</strong> Dallas, Texas, USA
+    </p>
+  </div>
+</div>
+
+<footer>
+  © Snow Ocean Travel Consulting
+</footer>
+
+</body>
+</html>
