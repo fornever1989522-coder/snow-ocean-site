@@ -37,13 +37,20 @@
       color: #0b3d91;
       letter-spacing: 0.5px;
     }
-    nav a {
+    nav .menu a {
       text-decoration: none;
       color: #333;
       margin-left: 20px;
       font-size: 0.95rem;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
     }
-    nav a:hover {
+    nav .menu a.active {
+      color: #0b3d91;
+      border-color: #0b3d91;
+    }
+    nav .menu a:hover {
       color: #0b3d91;
     }
 
@@ -68,19 +75,24 @@
       opacity: 0.9;
     }
 
-    /* SECTIONS */
+    /* CONTENT SECTIONS */
     .section {
       max-width: 1000px;
-      margin: 40px auto;
+      margin: 30px auto 10px;
       padding: 0 20px 10px;
+      display: none;           /* hide by default */
     }
+    .section.active {
+      display: block;          /* only the active tab is shown */
+    }
+
     h2 {
       color: #0b3d91;
       margin-bottom: 10px;
       font-size: 1.6rem;
     }
 
-    /* SERVICES */
+    /* SERVICES GRID */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -133,9 +145,10 @@
   <nav>
     <div class="logo">Snow Ocean Consulting</div>
     <div class="menu">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+      <!-- data-target refers to the section id below -->
+      <a class="nav-link active" data-target="about">About</a>
+      <a class="nav-link" data-target="services">Services</a>
+      <a class="nav-link" data-target="contact">Contact</a>
     </div>
   </nav>
 </header>
@@ -148,21 +161,23 @@
   </p>
 </section>
 
-<div class="section" id="about">
+<!-- ABOUT TAB -->
+<div class="section active" id="about">
   <h2>About Snow Ocean</h2>
   <p>
     Snow Ocean Travel Consulting is a small, independent travel advisory based in Dallas, Texas.
     We focus on adventure travel: snowboarding and ski trips, scuba diving holidays, and
-    hiking or trekking routes around the world. Our role is to help you decide where to go,
-    when to go, and how to structure your trip so you get the most out of your time on the
-    mountain, in the water, or on the trail.
+    hiking or trekking routes around the world.
   </p>
   <p>
-    We don’t sell flights or hotel packages directly. Instead, we provide simple, experience-based
-    guidance and trip outlines that you can book on your own through the platforms you prefer.
+    Our role is to help you decide where to go, when to go, and how to structure your trip so you
+    get the most out of your time on the mountain, in the water, or on the trail. We don’t sell
+    flights or hotel packages directly; instead we provide experience-based guidance and simple
+    trip outlines that you can book yourself through the platforms you prefer.
   </p>
 </div>
 
+<!-- SERVICES TAB -->
 <div class="section" id="services">
   <h2>Services</h2>
   <div class="services">
@@ -170,34 +185,32 @@
       <h3>Snowboarding & Ski Trips</h3>
       <p>
         Suggestions on destinations, seasons, and resort areas for Japan powder trips,
-        Colorado and Utah, Canada, and European Alps. We help you compare options and
-        sketch out a practical day-by-day plan.
+        Colorado and Utah, Canada, and Europe, plus high-level day-by-day pacing.
       </p>
     </div>
     <div class="card">
       <h3>Scuba Diving Trips</h3>
       <p>
-        High-level advice on dive regions such as the Philippines, Indonesia, Maldives,
-        and Thailand: where to base, how many days to stay, and how to combine islands
-        or dive spots in one trip.
+        Guidance for dive regions such as the Philippines, Indonesia, Maldives, and Thailand:
+        where to base, how long to stay, and how to combine islands or dive spots in one trip.
       </p>
     </div>
     <div class="card">
       <h3>Hiking & Trekking Plans</h3>
       <p>
-        Itinerary ideas for multi-day hikes and treks, including Patagonia, Kilimanjaro,
-        Nepal (EBC and surrounding routes), and national park trails. We focus on route
-        choice, pacing, and basic logistics.
+        Itinerary ideas for multi-day treks including Patagonia, Kilimanjaro, Nepal (EBC),
+        and national park routes, focusing on route choice, pacing, and basic logistics.
       </p>
     </div>
   </div>
 </div>
 
+<!-- CONTACT TAB -->
 <div class="section" id="contact">
   <h2>Contact</h2>
   <div class="contact-box">
     <p>
-      For inquiries or to discuss a possible trip, contact us by email:
+      For inquiries or to discuss a possible trip, please contact:
     </p>
     <p>
       <strong>Email:</strong>
@@ -212,6 +225,38 @@
 <footer>
   © Snow Ocean Travel Consulting
 </footer>
+
+<script>
+  // Simple tab logic: show only the selected section
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.section');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetId = link.getAttribute('data-target');
+
+      // update active nav link
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+
+      // show only the matching section
+      sections.forEach(sec => {
+        if (sec.id === targetId) {
+          sec.classList.add('active');
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+
+      // scroll smoothly to the content area (under hero)
+      const firstSectionTop = document.querySelector('.section').offsetTop;
+      window.scrollTo({
+        top: firstSectionTop - 20,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
